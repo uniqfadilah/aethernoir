@@ -44,7 +44,7 @@ export function Carousel({ artworks }: Props) {
 
   return (
     <section
-      className="vignette relative h-[78dvh] min-h-[520px] w-full overflow-hidden bg-[var(--color-surface)]"
+      className="vignette relative h-[60dvh] min-h-[380px] w-full overflow-hidden bg-[var(--color-surface)] sm:h-[70dvh] sm:min-h-[480px] md:h-[78dvh] md:min-h-[520px]"
       aria-roledescription="carousel"
       aria-label="Featured artworks"
     >
@@ -68,21 +68,21 @@ export function Carousel({ artworks }: Props) {
               className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-bg)] via-[var(--color-bg)]/40 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-10 md:p-16">
-              <p className="mb-3 text-xs tracking-[0.4em] uppercase text-[var(--color-gold)]">
+            <div className="absolute bottom-0 left-0 right-0 p-5 pb-12 sm:p-10 sm:pb-12 md:p-16">
+              <p className="mb-2 text-[0.65rem] tracking-[0.35em] uppercase text-[var(--color-gold)] sm:mb-3 sm:text-xs sm:tracking-[0.4em]">
                 Featured Work
               </p>
-              <h2 className="mb-4 text-3xl tracking-[0.18em] md:text-5xl">
+              <h2 className="mb-3 text-2xl tracking-[0.14em] sm:mb-4 sm:text-3xl sm:tracking-[0.18em] md:text-5xl">
                 {art.title}
               </h2>
               {art.year || art.medium ? (
-                <p className="mb-6 text-sm italic text-[var(--color-muted)]">
+                <p className="mb-4 text-xs italic text-[var(--color-muted)] sm:mb-6 sm:text-sm">
                   {[art.year, art.medium].filter(Boolean).join(" · ")}
                 </p>
               ) : null}
               <Link
                 href={`/art/${art.slug.current}`}
-                className="inline-block border border-[var(--color-gold)]/50 px-6 py-3 text-xs tracking-[0.3em] uppercase text-[var(--color-gold)] transition-all duration-500 hover:border-[var(--color-gold)] hover:bg-[var(--color-gold)]/10"
+                className="inline-block border border-[var(--color-gold)]/50 px-5 py-2.5 text-[0.65rem] tracking-[0.25em] uppercase text-[var(--color-gold)] transition-all duration-500 hover:border-[var(--color-gold)] hover:bg-[var(--color-gold)]/10 sm:px-6 sm:py-3 sm:text-xs sm:tracking-[0.3em]"
               >
                 View work
               </Link>
@@ -96,7 +96,7 @@ export function Carousel({ artworks }: Props) {
           <button
             type="button"
             onClick={prev}
-            className="absolute left-4 top-1/2 -translate-y-1/2 border border-[var(--color-surface-2)] bg-[var(--color-bg)]/40 p-3 text-[var(--color-muted)] transition hover:text-[var(--color-gold)]"
+            className="absolute left-3 top-1/2 hidden -translate-y-1/2 border border-[var(--color-surface-2)] bg-[var(--color-bg)]/40 p-3 text-[var(--color-muted)] transition hover:text-[var(--color-gold)] sm:block md:left-4"
             aria-label="Previous slide"
           >
             ←
@@ -104,19 +104,19 @@ export function Carousel({ artworks }: Props) {
           <button
             type="button"
             onClick={next}
-            className="absolute right-4 top-1/2 -translate-y-1/2 border border-[var(--color-surface-2)] bg-[var(--color-bg)]/40 p-3 text-[var(--color-muted)] transition hover:text-[var(--color-gold)]"
+            className="absolute right-3 top-1/2 hidden -translate-y-1/2 border border-[var(--color-surface-2)] bg-[var(--color-bg)]/40 p-3 text-[var(--color-muted)] transition hover:text-[var(--color-gold)] sm:block md:right-4"
             aria-label="Next slide"
           >
             →
           </button>
-          <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 gap-2">
+          <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2 sm:bottom-6">
             {artworks.map((a, i) => (
               <button
                 key={a._id}
                 type="button"
                 onClick={() => goTo(i)}
                 aria-label={`Go to slide ${i + 1}`}
-                className={`h-[2px] w-10 transition-all ${
+                className={`h-[2px] w-6 transition-all sm:w-10 ${
                   i === index
                     ? "bg-[var(--color-gold)]"
                     : "bg-[var(--color-muted)]/40"

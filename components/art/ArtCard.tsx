@@ -17,8 +17,8 @@ export function ArtCard({ artwork }: { artwork: ArtworkCardT }) {
         />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--color-bg)]/80 via-transparent to-transparent opacity-90 transition-opacity duration-700 group-hover:opacity-70" />
       </div>
-      <div className="p-5">
-        <h3 className="mb-1 text-base tracking-[0.18em] transition-colors duration-500 group-hover:text-[var(--color-gold)]">
+      <div className="p-4 sm:p-5">
+        <h3 className="mb-1 text-sm tracking-[0.14em] transition-colors duration-500 group-hover:text-[var(--color-gold)] sm:text-base sm:tracking-[0.18em]">
           {artwork.title}
         </h3>
         {(artwork.year || artwork.medium) && (

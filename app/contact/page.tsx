@@ -15,13 +15,15 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function ContactPage() {
   return (
-    <div className="mx-auto max-w-2xl px-6 py-24">
-      <header className="mb-12 text-center">
-        <p className="mb-3 text-xs tracking-[0.4em] uppercase text-[var(--color-gold)]">
+    <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24">
+      <header className="mb-8 text-center sm:mb-12">
+        <p className="mb-2 text-[0.65rem] tracking-[0.35em] uppercase text-[var(--color-gold)] sm:mb-3 sm:text-xs sm:tracking-[0.4em]">
           Hubungi
         </p>
-        <h1 className="mb-6 text-4xl tracking-[0.2em] md:text-5xl">Contact</h1>
-        <p className="text-[var(--color-muted)]">
+        <h1 className="mb-4 text-3xl tracking-[0.15em] sm:mb-6 sm:text-4xl sm:tracking-[0.2em] md:text-5xl">
+          Contact
+        </h1>
+        <p className="text-sm text-[var(--color-muted)] sm:text-base">
           Untuk inquiry komisi, pameran, atau sekadar menyapa.
         </p>
       </header>

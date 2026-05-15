@@ -38,19 +38,21 @@ export default async function ArtPage({
     : artworks;
 
   return (
-    <div className="mx-auto max-w-7xl px-6 py-24">
-      <header className="mb-12 text-center">
-        <p className="mb-3 text-xs tracking-[0.4em] uppercase text-[var(--color-gold)]">
+    <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24">
+      <header className="mb-8 text-center sm:mb-12">
+        <p className="mb-2 text-[0.65rem] tracking-[0.35em] uppercase text-[var(--color-gold)] sm:mb-3 sm:text-xs sm:tracking-[0.4em]">
           Galeri
         </p>
-        <h1 className="text-4xl tracking-[0.2em] md:text-5xl">Art</h1>
+        <h1 className="text-3xl tracking-[0.15em] sm:text-4xl sm:tracking-[0.2em] md:text-5xl">
+          Art
+        </h1>
       </header>
 
       {tags.length > 0 && (
-        <nav className="mb-12 flex flex-wrap items-center justify-center gap-3">
+        <nav className="mb-8 flex flex-wrap items-center justify-center gap-2 sm:mb-12 sm:gap-3">
           <Link
             href="/art"
-            className={`border px-4 py-2 text-xs tracking-[0.25em] uppercase transition ${
+            className={`border px-3 py-1.5 text-[0.65rem] tracking-[0.2em] uppercase transition sm:px-4 sm:py-2 sm:text-xs sm:tracking-[0.25em] ${
               !tag
                 ? "border-[var(--color-gold)] text-[var(--color-gold)]"
                 : "border-[var(--color-surface-2)] text-[var(--color-muted)] hover:text-[var(--color-gold)]"
@@ -64,7 +66,7 @@ export default async function ArtPage({
               <Link
                 key={t._id}
                 href={`/art?tag=${t.slug.current}`}
-                className={`border px-4 py-2 text-xs tracking-[0.25em] uppercase transition ${
+                className={`border px-3 py-1.5 text-[0.65rem] tracking-[0.2em] uppercase transition sm:px-4 sm:py-2 sm:text-xs sm:tracking-[0.25em] ${
                   active
                     ? "border-[var(--color-gold)] text-[var(--color-gold)]"
                     : "border-[var(--color-surface-2)] text-[var(--color-muted)] hover:text-[var(--color-gold)]"

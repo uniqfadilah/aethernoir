@@ -60,17 +60,17 @@ export default async function ArtDetailPage({ params }: { params: Params }) {
   const related = await getRelatedArtworks(slug, tagSlugs).catch(() => []);
 
   return (
-    <article className="mx-auto max-w-5xl px-6 py-16">
+    <article className="mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-16">
       <JsonLd data={artworkJsonLd(artwork, settings)} />
 
       <Link
         href="/art"
-        className="mb-10 inline-block text-xs tracking-[0.3em] uppercase text-[var(--color-muted)] transition hover:text-[var(--color-gold)]"
+        className="mb-6 inline-block text-[0.65rem] tracking-[0.25em] uppercase text-[var(--color-muted)] transition hover:text-[var(--color-gold)] sm:mb-10 sm:text-xs sm:tracking-[0.3em]"
       >
         ← Back to gallery
       </Link>
 
-      <div className="vignette mb-12 overflow-hidden bg-[var(--color-surface)]">
+      <div className="vignette mb-8 overflow-hidden bg-[var(--color-surface)] sm:mb-12">
         <SanityImage
           image={artwork.image}
           width={1600}
@@ -80,22 +80,22 @@ export default async function ArtDetailPage({ params }: { params: Params }) {
         />
       </div>
 
-      <header className="mb-10 text-center">
-        <h1 className="mb-4 text-4xl tracking-[0.2em] md:text-5xl">
+      <header className="mb-8 text-center sm:mb-10">
+        <h1 className="mb-3 text-2xl tracking-[0.14em] sm:mb-4 sm:text-4xl sm:tracking-[0.2em] md:text-5xl">
           {artwork.title}
         </h1>
         {(artwork.year || artwork.medium) && (
-          <p className="text-sm italic tracking-wide text-[var(--color-muted)]">
+          <p className="text-xs italic tracking-wide text-[var(--color-muted)] sm:text-sm">
             {[artwork.year, artwork.medium].filter(Boolean).join(" · ")}
           </p>
         )}
         {artwork.tags && artwork.tags.length > 0 && (
-          <ul className="mt-5 flex flex-wrap items-center justify-center gap-2">
+          <ul className="mt-4 flex flex-wrap items-center justify-center gap-2 sm:mt-5">
             {artwork.tags.map((t) => (
               <li key={t._id}>
                 <Link
                   href={`/art?tag=${t.slug.current}`}
-                  className="border border-[var(--color-surface-2)] px-3 py-1 text-[0.65rem] tracking-[0.3em] uppercase text-[var(--color-muted)] transition hover:border-[var(--color-gold)] hover:text-[var(--color-gold)]"
+                  className="border border-[var(--color-surface-2)] px-2.5 py-1 text-[0.6rem] tracking-[0.25em] uppercase text-[var(--color-muted)] transition hover:border-[var(--color-gold)] hover:text-[var(--color-gold)] sm:px-3 sm:text-[0.65rem] sm:tracking-[0.3em]"
                 >
                   {t.name}
                 </Link>
@@ -105,7 +105,7 @@ export default async function ArtDetailPage({ params }: { params: Params }) {
         )}
       </header>
 
-      <div className="mx-auto max-w-2xl text-lg leading-relaxed">
+      <div className="mx-auto max-w-2xl text-base leading-relaxed sm:text-lg">
         <PortableTextBody value={artwork.caption} />
       </div>
 

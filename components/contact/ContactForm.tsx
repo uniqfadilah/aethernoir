@@ -70,7 +70,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={pending}
-        className="inline-block border border-[var(--color-gold)]/50 px-8 py-4 text-xs tracking-[0.3em] uppercase text-[var(--color-gold)] transition-all duration-500 hover:border-[var(--color-gold)] hover:bg-[var(--color-gold)]/10 disabled:opacity-50"
+        className="inline-block w-full border border-[var(--color-gold)]/50 px-6 py-3 text-[0.65rem] tracking-[0.25em] uppercase text-[var(--color-gold)] transition-all duration-500 hover:border-[var(--color-gold)] hover:bg-[var(--color-gold)]/10 disabled:opacity-50 sm:w-auto sm:px-8 sm:py-4 sm:text-xs sm:tracking-[0.3em]"
       >
         {pending ? "Mengirim…" : "Kirim Pesan"}
       </button>
