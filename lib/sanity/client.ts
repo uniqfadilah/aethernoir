@@ -1,0 +1,21 @@
+import { createClient } from "next-sanity";
+import {
+  createImageUrlBuilder,
+  type SanityImageSource,
+} from "@sanity/image-url";
+import { env } from "../env";
+
+export const sanityClient = createClient({
+  projectId: env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+  dataset: env.NEXT_PUBLIC_SANITY_DATASET,
+  apiVersion: env.NEXT_PUBLIC_SANITY_API_VERSION,
+  useCdn: process.env.NODE_ENV === "production",
+  token: env.SANITY_API_READ_TOKEN || undefined,
+  perspective: "published",
+});
+
+const builder = createImageUrlBuilder(sanityClient);
+
+export function urlForImage(source: SanityImageSource) {
+  return builder.image(source).auto("format").fit("max");
+}
